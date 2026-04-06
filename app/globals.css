@@ -1,26 +1,360 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Pastel Color Palette */
+  --pink: #ffb3c1;
+  --pink-soft: #ffe4e9;
+  --pink-dark: #ff85a1;
+  --lavender: #d4b5f0;
+  --lavender-soft: #f0e6fa;
+  --lavender-dark: #b794f6;
+  --mint: #a8e6cf;
+  --mint-soft: #e0f7e8;
+  --mint-dark: #7fd8b8;
+  --beige: #fdf6e3;
+  --beige-soft: #fff9ed;
+  --cream: #fef9f3;
+  --cream-soft: #fffdfb;
+  
+  /* Semantic Colors */
+  --primary: #ffb3c1;
+  --primary-dark: #ff85a1;
+  --secondary: #d4b5f0;
+  --accent: #a8e6cf;
+  
+  /* Background Colors */
+  --bg-primary: #fdf6e3;
+  --bg-secondary: #fef9f3;
+  --bg-card: #ffffff;
+  
+  /* Text Colors */
+  --text-primary: #5a5a5a;
+  --text-secondary: #8b8680;
+  --text-muted: #a8a4a0;
+  
+  /* Shadows */
+  --shadow-soft: 8px 8px 16px #e6dfd1, -8px -8px 16px #ffffff;
+  --shadow-soft-hover: 12px 12px 24px #e6dfd1, -12px -12px 24px #ffffff;
+  --shadow-inset: inset 4px 4px 8px #e6dfd1, inset -4px -4px 8px #ffffff;
+}
+
+.dark {
+  --bg-primary: #2d2a32;
+  --bg-secondary: #36323d;
+  --bg-card: #3e3a46;
+  --text-primary: #f5f0e8;
+  --text-secondary: #c8c4bc;
+  --text-muted: #9a9690;
+  --shadow-soft: 8px 8px 16px #1f1d23, -8px -8px 16px #3d3947;
+  --shadow-soft-hover: 12px 12px 24px #1f1d23, -12px -12px 24px #3d3947;
+  --shadow-inset: inset 4px 4px 8px #1f1d23, inset -4px -4px 8px #3d3947;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-card: var(--bg-card);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-pink: var(--pink);
+  --color-pink-soft: var(--pink-soft);
+  --color-lavender: var(--lavender);
+  --color-lavender-soft: var(--lavender-soft);
+  --color-mint: var(--mint);
+  --color-mint-soft: var(--mint-soft);
+  --color-cream: var(--cream);
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-geist-sans), 'Nunito', system-ui, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Neumorphism & Glass Styles */
+.neu-card {
+  background: var(--bg-card);
+  border-radius: 24px;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.neu-card:hover {
+  box-shadow: var(--shadow-soft-hover);
+  transform: translateY(-4px);
+}
+
+.neu-button {
+  background: var(--bg-card);
+  border-radius: 50px;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.neu-button:hover {
+  box-shadow: var(--shadow-soft-hover);
+  transform: translateY(-2px);
+}
+
+.neu-button:active {
+  box-shadow: var(--shadow-inset);
+  transform: translateY(0);
+}
+
+.neu-pressed {
+  box-shadow: var(--shadow-inset);
+}
+
+.glass-cute {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 24px;
+}
+
+.dark .glass-cute {
+  background: rgba(62, 58, 70, 0.6);
+  border: 2px solid rgba(62, 58, 70, 0.8);
+}
+
+/* Pastel Gradient Text */
+.gradient-pastel {
+  background: linear-gradient(135deg, #ffb3c1 0%, #d4b5f0 50%, #a8e6cf 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-pink-lavender {
+  background: linear-gradient(135deg, #ffb3c1 0%, #d4b5f0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Cute Badge Styles */
+.badge-cute {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.badge-pink {
+  background: var(--pink-soft);
+  color: #c71565;
+}
+
+.badge-lavender {
+  background: var(--lavender-soft);
+  color: #7c3aed;
+}
+
+.badge-mint {
+  background: var(--mint-soft);
+  color: #059669;
+}
+
+/* Decorative Elements */
+.blob {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animation: blob-morph 8s ease-in-out infinite;
+}
+
+@keyframes blob-morph {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  25% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  50% {
+    border-radius: 50% 60% 30% 60% / 30% 40% 70% 60%;
+  }
+  75% {
+    border-radius: 60% 40% 60% 30% / 70% 30% 50% 60%;
+  }
+}
+
+.floating {
+  animation: float-gentle 6s ease-in-out infinite;
+}
+
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(2deg);
+  }
+}
+
+.sparkle {
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--pink) 0%, var(--lavender) 50%, var(--mint) 100%);
+  border-radius: 20px;
+  border: 3px solid var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--pink-dark) 0%, var(--lavender-dark) 50%, var(--mint-dark) 100%);
+}
+
+/* Progress Bars */
+.progress-cute {
+  background: var(--bg-secondary);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-inset);
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(90deg, var(--pink) 0%, var(--lavender) 50%, var(--mint) 100%);
+  transition: width 1s ease-out;
+}
+
+/* Form Inputs */
+.input-cute {
+  background: var(--bg-card);
+  border: 2px solid transparent;
+  border-radius: 16px;
+  padding: 16px 20px;
+  box-shadow: var(--shadow-inset);
+  transition: all 0.3s ease;
+  outline: none;
+  color: var(--text-primary);
+}
+
+.input-cute:focus {
+  border-color: var(--pink);
+  box-shadow: 0 0 0 4px var(--pink-soft), var(--shadow-inset);
+}
+
+/* Animated Background Pattern */
+.bg-pattern-dots {
+  background-image: radial-gradient(circle, var(--pink) 2px, transparent 2px);
+  background-size: 30px 30px;
+  opacity: 0.3;
+}
+
+.bg-pattern-hearts {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffb3c1' opacity='0.2'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
+  background-size: 24px 24px;
+}
+
+/* Hover Micro-interactions */
+.hover-scale {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.hover-wiggle:hover {
+  animation: wiggle 0.5s ease-in-out;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+}
+
+/* Category Pills */
+.pill {
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.pill-active {
+  background: var(--pink);
+  color: white;
+}
+
+.pill-inactive {
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  box-shadow: var(--shadow-soft);
+}
+
+.pill-inactive:hover {
+  box-shadow: var(--shadow-soft-hover);
+  transform: translateY(-2px);
+}
+
+/* Cursor Animation Styles */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--pink);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease;
+}
+
+.cursor-ring {
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--lavender);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transition: all 0.15s ease-out;
+}
+
+/* Section Spacing */
+.section-padding {
+  padding: 80px 0;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 120px 0;
+  }
 }
