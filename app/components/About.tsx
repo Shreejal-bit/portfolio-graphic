@@ -122,7 +122,7 @@ export default function About() {
                     <span className="text-6xl">👩‍🎨</span>
                   </motion.div>
                   <p className="text-lg font-medium" style={{ color: "#ff5d8f" }}>
-                    Bao Tran
+                    Sonu
                   </p>
                   <p className="text-sm" style={{ color: "#8b8b8b" }}>
                     Graphic Designer
@@ -175,8 +175,8 @@ export default function About() {
 
             <div className="space-y-4 text-gray-600 leading-relaxed">
               <p>
-                Hello! I&apos;m Bao Tran, a passionate graphic designer who believes in the 
-                power of cute and aesthetic design. My journey began 5 years ago when I 
+                Hello! I&apos;m Sonu, a passionate graphic designer who believes in the 
+                power of cute and aesthetic design. My journey began 1 years ago when I 
                 discovered my love for creating digital art that makes people smile.
               </p>
               <p>
