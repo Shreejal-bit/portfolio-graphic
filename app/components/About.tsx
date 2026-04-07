@@ -141,7 +141,7 @@ export default function About() {
                 }}
               >
                 <Star className="w-4 h-4 inline mr-1" fill="currentColor" />
-                5+ Years
+                1+ Years
               </motion.div>
             </TiltCard>
           </motion.div>
