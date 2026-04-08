@@ -8,7 +8,7 @@ export default function About() {
   return (
     <section 
       id="about" 
-      className="py-24 md:py-32 relative overflow-hidden"
+      className="py-24 md:py-32 relative overflow-hidden z-10"
       style={{
         background: "linear-gradient(180deg, #fef9f3 0%, #fff5f8 50%, #ffeef3 100%)"
       }}

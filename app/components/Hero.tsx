@@ -283,9 +283,9 @@ export default function Hero() {
         transition={{ duration: 0.8 }}
         className="absolute top-6 left-0 right-0 px-6 md:px-12 flex justify-between items-center text-white/95 font-light text-[11px] md:text-xs tracking-[0.2em] uppercase"
       >
-        <span>/Illustrator/</span>
+        
         <span>/Graphic Design/</span>
-        <span className="hidden md:inline">/Bao Tran — Yuukunb/</span>
+       
       </motion.div>
 
       {/* Year */}
@@ -302,12 +302,12 @@ export default function Hero() {
             fontFamily: "Georgia, serif"
           }}
         >
-          /2026/
+        
         </span>
       </motion.div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 flex flex-col items-center justify-start min-h-screen pt-24 md:pt-28">
+      <div className="relative z-10 flex flex-col items-center justify-start min-h-screen pt-32 md:pt-40">
         
         {/* Star sparkle */}
         <motion.div
@@ -326,29 +326,31 @@ export default function Hero() {
         </motion.div>
 
         {/* PORTFOLIO Title - Elegant Serif Italic */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, delay: 0.2 }}
-          className="relative mt-4 md:mt-8"
-        >
-          <h1 
-            className="text-[4.5rem] sm:text-[6rem] md:text-[8rem] lg:text-[10rem] xl:text-[12rem] leading-[0.85] tracking-tight"
-            style={{
-              fontFamily: "Georgia, 'Times New Roman', serif",
-              fontStyle: "italic",
-              fontWeight: 400,
-              background: "linear-gradient(180deg, #ff5d8f 0%, #ff6b8a 20%, #ff8fa3 40%, #ffb3c1 60%, #ffc8d6 80%, #ffd6e7 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-              letterSpacing: "0.02em",
-              filter: "drop-shadow(0 20px 40px rgba(255,93,143,0.15))"
-            }}
+        <div className="relative z-0">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, delay: 0.2 }}
+            className="relative -mt-8 md:-mt-12"
           >
-            PORTFOLIO
-          </h1>
-        </motion.div>
+            <h1 
+              className="text-[4.5rem] sm:text-[6rem] md:text-[8rem] lg:text-[10rem] xl:text-[12rem] leading-[0.9] tracking-tight"
+              style={{
+                fontFamily: "Georgia, 'Times New Roman', serif",
+                fontStyle: "italic",
+                fontWeight: 400,
+                background: "linear-gradient(180deg, #ff5d8f 0%, #ff6b8a 20%, #ff8fa3 40%, #ffb3c1 60%, #ffc8d6 80%, #ffd6e7 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                letterSpacing: "0.02em",
+                filter: "drop-shadow(0 20px 40px rgba(255,93,143,0.15))"
+              }}
+            >
+              PORTFOLIO
+            </h1>
+          </motion.div>
+        </div>
 
         {/* Floating Software Cubes - Left Side */}
         <GlassCube 
@@ -379,7 +381,7 @@ export default function Hero() {
         />
 
         {/* Character Section */}
-        <div className="relative mt-2 md:mt-4 w-full flex flex-col items-center">
+        <div className="relative z-10 mt-8 md:mt-12 w-full flex flex-col items-center">
           <CatCharacter />
           
           {/* WELCOME Text */}
@@ -387,7 +389,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.5 }}
-            className="mt-6"
+            className="mt-10 md:mt-14"
           >
             <span 
               className="text-base md:text-lg tracking-[0.3em] font-light"

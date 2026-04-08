@@ -16,10 +16,10 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading time (minimum 2 seconds to show the cute loader)
+    // Simulate loading time (minimum 1 second to show the cute loader)
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2500);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, []);
