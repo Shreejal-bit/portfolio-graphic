@@ -102,29 +102,24 @@ export default function About() {
                 style={{ background: "linear-gradient(135deg, #a8e6cf 0%, #ffb3c1 100%)" }}
               />
               
-              {/* Main card */}
+              {/* Main card with image background */}
               <div 
                 className="relative w-full h-full rounded-[2rem] overflow-hidden flex items-center justify-center"
                 style={{
-                  background: "linear-gradient(135deg, #fff0f3 0%, #ffe4e9 100%)",
                   boxShadow: "0 30px 60px rgba(255, 179, 193, 0.2)"
                 }}
               >
-                <div className="text-center p-8">
-                  <motion.div
-                    animate={{ scale: [1, 1.1, 1] }}
-                    transition={{ duration: 3, repeat: Infinity }}
-                    className="w-32 h-32 mx-auto mb-6 rounded-full flex items-center justify-center"
-                    style={{
-                      background: "linear-gradient(135deg, #ffb3c1 0%, #d4b5f0 100%)"
-                    }}
-                  >
-                    <span className="text-6xl">👩‍🎨</span>
-                  </motion.div>
-                  <p className="text-lg font-medium" style={{ color: "#ff5d8f" }}>
+                <img 
+                  src="/img/img.jpeg" 
+                  alt="Sonu - Graphic Designer"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-pink-500/30 via-transparent to-transparent" />
+                <div className="relative z-10 text-center p-8 mt-auto">
+                  <p className="text-lg font-medium drop-shadow-md" style={{ color: "#fff" }}>
                     Sonu
                   </p>
-                  <p className="text-sm" style={{ color: "#8b8b8b" }}>
+                  <p className="text-sm drop-shadow-md" style={{ color: "#fff" }}>
                     Graphic Designer
                   </p>
                 </div>
